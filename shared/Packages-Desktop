@@ -36,3 +36,4 @@ xf86-input-libinput
 xf86-input-void
 xorg-twm
 xorg-xinit
+manjaro-pacnew-checker # realtime pacdiff mimic with GUI interface
