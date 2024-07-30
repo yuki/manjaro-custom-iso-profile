@@ -1,3 +1,41 @@
+# Manjaro custom ISO profile
+This is a clone from the original [Manjaro iso-profiles repository](https://gitlab.manjaro.org/profiles-and-settings/iso-profiles).
+
+The package **[manjaro-iso-profiles-base](https://manjaristas.org/branch_compare?q=manjaro-iso-profiles-base)** is built with this [PKGBUILD](https://gitlab.manjaro.org/packages/extra/manjaro-iso-profiles), which is not using the last commit (not sure why).
+
+The idea of this repository is to create a custom Manjaro ISO with custom packages. The profile files are in the directory [manjaro/yuki](manjaro/yuki). 
+
+## How to use this?
+
+This repository must be used in a [Manjaro](https://manjaro.org/) distribution (I use in a virtual machine), and here is the [documentation to build custom ISO](https://wiki.manjaro.org/index.php?title=Build_Manjaro_ISOs_with_buildiso).
+
+Basic steps, as **root**:
+
+``` bash
+# install dependencies
+pacman install manjaro-tools-iso git 
+
+# clone this repository
+git clone https://github.com/yuki/manjaro-custom-iso-profile 
+
+# move manjaro-default profile's directory
+mv /usr/share/manjaro-tools/iso-profiles /usr/share/manjaro-tools/iso-profiles-old 
+
+# link this repository to the real path
+ln -s /root/manjaro-custom-iso-profile /usr/share/manjaro-tools/iso-profiles
+```
+
+After this, to build the ISO:
+
+``` bash
+buildiso -p yuki -k linux69 -f
+```
+
+* **-p**: profile to create the ISO
+* **-k**: kernel to use
+* **-f**: Build full ISO (extra=true). Otherwise, the size will be less.
+
+
 ## iso-profiles
 
 
